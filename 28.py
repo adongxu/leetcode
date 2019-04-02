@@ -19,3 +19,17 @@ For the purpose of this problem, we will return 0 when needle is an empty string
 """
 class Solution:
     def strStr(self, haystack, needle):
+        if not needle:
+            return 0
+        if not haystack:
+            return -1
+        i = 0
+        while i < len(haystack):
+            if haystack[i] == needle[0]:
+                if len(haystack) - i >= len(needle) and haystack[i:i + len(needle)] == needle:
+                    return i
+                else:
+                    i += 1
+            else:
+                i += 1
+        return -1
